@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-int* add_element(char*p,char*k,int i,int n)
+int* add_element(int*p,int*k,int i,int n)
 {
 	int a;
 	for(a=0;a<=n;a++)
@@ -11,7 +11,7 @@ int* add_element(char*p,char*k,int i,int n)
 		{
 			printf("%d",p[a]);
 		}
-	return *p;
+	return p;
 }
 int main ()
 {
@@ -40,26 +40,26 @@ int main ()
 	p=(int*)calloc(n+j,sizeof(int));
 	if(k==1)
 	{
-		*p=add_element(&a,&b,n,j);
+		p=add_element(a,b,n,j);
 		int*a=realloc(a,j+n);
 		for(l=0;l<j+n;l++)
 		{
 			a[l]=p[l];
 		}
-		for(l=0;l<j+n;j++)
+		for(l=0;l<j+n;l++)
 		{
 			printf("%d",a[l]);
 		}
 	}
 	if(k==0)
 	{
-	*p=add_element(&b,&a,j,n);
+	p=add_element(b,a,j,n);
 	int*b=realloc(b,p);
 	for(l=0;l<j+n;l++)
 		{
 			b[l]=p[l];
 		}
-		for(l=0;l<j+n;j++)
+		for(l=0;l<j+n;l++)
 		{
 			printf("%d",b[l]);
 		}
